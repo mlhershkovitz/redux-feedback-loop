@@ -1,31 +1,38 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import ReviewFeedback from '../ReviewFeedback/ReviewFeedback';
+import { Redirect } from 'react-router';
 
 class Feeling extends Component {
+  state = {
+    feeling: 0,
+    redirect: false,
+  }
 
   handleClick = () => {
     console.log('button clicked');
-    
-    axios({
-      method: 'POST',
-      url: '/feeling',
-      data: this.props,
-    }).then ((response) =>{
-        console.log(response);
-    }).catch ((error) => {
-      console.log('could not add feeling rating', error);
+    this.setState({
+      ...this.state,
+      redirect: true,
     })
   }
 
   handleChange = (event) => {
     this.setState({
-            ...this.props,
+            ...this.state,
             feeling: event.target.value,
     })
 }
 
 render() {
+
+  console.log(this.props);
+
+  if (this.state.redirect) {
+    return < Redirect push to = '/understanding'/>
+  }
+  
     return (
       <form>
         <div>
@@ -38,6 +45,7 @@ render() {
           onChange = {this.handleChange}/>
           <button onClick={this.handleClick}>Next</button>
       </div>
+      < ReviewFeedback />
       </form>
     );
   }
