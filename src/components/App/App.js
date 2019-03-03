@@ -14,6 +14,13 @@ import ReviewFeedback from '../ReviewFeedback/ReviewFeedback';
 
 
 class App extends Component {
+  state = {
+    feeling: 0,
+    understanding: 0,
+    support: 0,
+    comments: '',
+  }
+  
   render() {
     return (
       <div className="App">
