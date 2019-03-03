@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux';
+import ReviewFeedback from '../ReviewFeedback/ReviewFeedback';
+import { Redirect } from 'react-router';
 
 class UnderstandingContent extends Component {
+  state = {
+    understanding: 0,
+    redirect: false,
+  }
+
   handleClick = () => {
     console.log('button clicked');
-    
-    axios({
-      method: 'POST',
-      url: '/understanding',
-      data: this.props,
-    }).then ((response) =>{
-        console.log(response);
-    }).catch ((error) => {
-      console.log('could not add understanding rating', error);
+    this.setState({
+      ...this.state,
+      redirect: true,
     })
   }
 
@@ -25,6 +25,13 @@ class UnderstandingContent extends Component {
 }
 
   render() {
+
+    console.log(this.props);
+
+  if (this.state.redirect) {
+    return < Redirect push to = '/support'/>
+  }
+  
     return (
       <form>
         <div>
@@ -37,6 +44,7 @@ class UnderstandingContent extends Component {
           onChange = {this.handleChange}/>
           <button onClick={this.handleClick}>Next</button>
       </div>
+        < ReviewFeedback />
       </form>
     );
   }
