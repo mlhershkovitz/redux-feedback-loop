@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
+import ReviewFeedback from '../ReviewFeedback/ReviewFeedback';
 
 class Support extends Component {
+  state = {
+    support: 0,
+    redirect: false,
+  }
+
   handleClick = () => {
     console.log('button clicked');
-    
-    axios({
-      method: 'POST',
-      url: '/support',
-      data: this.props,
-    }).then ((response) =>{
-        console.log(response);
-    }).catch ((error) => {
-      console.log('could not add support rating', error);
+    this.setState({
+      ...this.state,
+      redirect: true,
     })
   }
 
@@ -25,6 +26,13 @@ class Support extends Component {
 }
 
   render() {
+
+    console.log(this.props);
+
+  if (this.state.redirect) {
+    return < Redirect push to = '/comments'/>
+  }
+  
     return (
       <form>
         <div>
@@ -37,6 +45,7 @@ class Support extends Component {
           onChange = {this.handleChange}/>
           <button onClick={this.handleClick}>Next</button>
       </div>
+      < ReviewFeedback />
       </form>
     );
   }

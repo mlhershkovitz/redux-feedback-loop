@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 
 class Comments extends Component {
   
+  state = {
+    comments: 0,
+    redirect: false,
+  }
+
   handleClick = () => {
     console.log('button clicked');
-    
-    axios({
-      method: 'POST',
-      url: '/comments',
-      data: this.props,
-    }).then ((response) =>{
-        console.log(response);
-    }).catch ((error) => {
-      console.log('could not add comments', error);
+    this.setState({
+      ...this.state,
+      redirect: true,
     })
   }
 
@@ -26,6 +25,13 @@ class Comments extends Component {
 }
 
   render() {
+
+    console.log(this.props);
+
+  if (this.state.redirect) {
+    return < Redirect push to = '/submit'/>
+  }
+
     return (
       <form>
         <div>
