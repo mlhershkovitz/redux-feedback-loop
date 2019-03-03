@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
-class Comments extends Component {
+class Support extends Component {
   render() {
     return (
       <div>
@@ -16,4 +16,4 @@ const mapReduxStateToProps = (reduxState) => {
   return reduxState;
 };
 
-export default connect(mapReduxStateToProps)(Comments);
+export default connect(mapReduxStateToProps)(Support);

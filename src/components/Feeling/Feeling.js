@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import { connect } from 'react-redux';
 
 class Feeling extends Component {
   render() {
@@ -12,4 +12,8 @@ class Feeling extends Component {
   }
 }
 
-export default Feeling;
+const mapReduxStateToProps = (reduxState) => {
+  return reduxState;
+};
+
+export default connect(mapReduxStateToProps)(Feeling);

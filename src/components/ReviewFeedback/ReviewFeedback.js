@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 
 
 class ReviewFeedback extends Component {
@@ -20,4 +21,8 @@ class ReviewFeedback extends Component {
   }
 }
 
-export default ReviewFeedback;
+const mapReduxStateToProps = (reduxState) => {
+    return reduxState;
+  };
+  
+  export default connect(mapReduxStateToProps)(ReviewFeedback);
