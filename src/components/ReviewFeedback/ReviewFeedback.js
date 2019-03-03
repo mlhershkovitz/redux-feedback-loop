@@ -19,13 +19,13 @@ class ReviewFeedback extends Component {
     render() {
     return (
       <div>
-          Feelings: {this.props.feeling}
+          Feelings: {this.props.feelingReducer}
           <br/>
-          Understanding: {this.props.understanding}
+          Understanding: {this.props.understandingReducer}
           <br/>
-          Support: {this.props.support}
+          Support: {this.props.supportReducer}
           <br/>
-          Comments: {this.props.comments}
+          Comments: {this.props.commentsReducer}
           <br/>
           <button onClick="handleClick">Submit</button>
       </div>

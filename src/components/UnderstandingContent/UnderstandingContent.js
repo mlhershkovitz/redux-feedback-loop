@@ -15,6 +15,7 @@ class UnderstandingContent extends Component {
       ...this.state,
       redirect: true,
     })
+    this.props.dispatch({ type: 'UPDATE_UNDERSTANDING', payload: this.state.understanding })
   }
 
   handleChange = (event) => {

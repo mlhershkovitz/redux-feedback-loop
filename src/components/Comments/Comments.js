@@ -15,6 +15,7 @@ class Comments extends Component {
       ...this.state,
       redirect: true,
     })
+    
   }
 
   handleChange = (event) => {

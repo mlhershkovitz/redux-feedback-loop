@@ -16,6 +16,7 @@ class Feeling extends Component {
       ...this.state,
       redirect: true,
     })
+    this.props.dispatch({ type: 'UPDATE_FEELING', payload: this.state.feeling })
   }
 
   handleChange = (event) => {
@@ -28,6 +29,8 @@ class Feeling extends Component {
 render() {
 
   console.log(this.props);
+  console.log(this.props.feelingReducer);
+  
 
   if (this.state.redirect) {
     return < Redirect push to = '/understanding'/>
