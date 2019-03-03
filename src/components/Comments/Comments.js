@@ -13,14 +13,14 @@ class Comments extends Component {
     }).then ((response) =>{
         console.log(response);
     }).catch ((error) => {
-      console.log('could not add feeling rating', error);
+      console.log('could not add comments', error);
     })
   }
 
   handleChange = (event) => {
     this.setState({
             ...this.props,
-            feeling: event.target.value,
+            comments: event.target.value,
     })
 }
 
@@ -28,8 +28,8 @@ class Comments extends Component {
     return (
       <form>
         <div>
-          <h1>How are you feeling today?</h1>
-          Feeling?
+          <h1>Any comments you want to leave?</h1>
+          Comments?
           <input 
           placeholder="1 - 5"
           value={this.data}
