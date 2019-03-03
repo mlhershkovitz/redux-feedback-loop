@@ -5,9 +5,18 @@ import { connect } from 'react-redux';
 class Support extends Component {
   render() {
     return (
-      <div>
-
+      <form>
+        <div>
+          <h1>How are you feeling today?</h1>
+          Feeling?
+          <input 
+          placeholder="1 - 5"
+          value={this.data}
+          type="number"
+          onChange = {this.handleChange}/>
+          <button onClick={this.handleClick}>Next</button>
       </div>
+      </form>
     );
   }
 }

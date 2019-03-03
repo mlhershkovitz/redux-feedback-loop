@@ -10,7 +10,7 @@ class Feeling extends Component {
     axios({
       method: 'POST',
       url: '/feeling',
-      data: this.state,
+      data: this.props,
     }).then ((response) =>{
         console.log(response);
     }).catch ((error) => {
