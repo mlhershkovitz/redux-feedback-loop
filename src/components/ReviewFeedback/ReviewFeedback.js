@@ -1,21 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux';
 
 
 class ReviewFeedback extends Component {
-    handleClick = () => {
-        console.log('button clicked');    
-    axios({
-        method: 'POST',
-        url: '/review',
-        data: this.props,
-      }).then ((response) =>{
-          console.log(response);
-      }).catch ((error) => {
-        console.log('could not add feeling rating', error);
-      })
-    }
+    
     render() {
     return (
       <div>
@@ -27,7 +15,6 @@ class ReviewFeedback extends Component {
           <br/>
           Comments: {this.props.commentsReducer}
           <br/>
-          <button onClick="handleClick">Submit</button>
       </div>
     );
   }

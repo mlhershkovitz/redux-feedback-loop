@@ -16,6 +16,7 @@ class Support extends Component {
       ...this.state,
       redirect: true,
     })
+    this.props.dispatch({ type: 'UPDATE_SUPPORT', payload: this.state.support })
   }
 
   handleChange = (event) => {

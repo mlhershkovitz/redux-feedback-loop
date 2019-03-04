@@ -21,33 +21,28 @@ const understandingReducer = (state=[], action) => {
     return state;
 }
 
-// const feelingReducer = (state=[], action) => {
-//     if (action.type === 'UPDATE_FEELING') {
-//         return action.payload;
-//     }
-//     return state;
-// }
+const supportReducer = (state=[], action) => {
+    if (action.type === 'UPDATE_SUPPORT') {
+        return action.payload;
+    }
+    return state;
+}
 
-// const feelingReducer = (state=[], action) => {
-//     if (action.type === 'UPDATE_FEELING') {
-//         return action.payload;
-//     }
-//     return state;
-// }
 
-// const feelingReducer = (state=[], action) => {
-//     if (action.type === 'UPDATE_FEELING') {
-//         return action.payload;
-//     }
-//     return state;
-// }
+const commentReducer = (state=[], action) => {
+    if (action.type === 'UPDATE_COMMENTS') {
+        return action.payload;
+    }
+    return state;
+}
+
 
 const storeInstance = createStore(
     combineReducers({
         feelingReducer,
         understandingReducer,
-        // supportReducer,
-        // commentReducer
+        supportReducer,
+        commentReducer
         
     }),    
 );

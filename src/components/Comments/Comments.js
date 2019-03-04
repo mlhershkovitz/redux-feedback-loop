@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
+import ReviewFeedback from '../ReviewFeedback/ReviewFeedback';
 
 class Comments extends Component {
   
@@ -15,7 +16,7 @@ class Comments extends Component {
       ...this.state,
       redirect: true,
     })
-    
+    this.props.dispatch({ type: 'UPDATE_COMMENTS', payload: this.state.comments })
   }
 
   handleChange = (event) => {
@@ -30,7 +31,7 @@ class Comments extends Component {
     console.log(this.props);
 
   if (this.state.redirect) {
-    return < Redirect push to = '/submit'/>
+    return < Redirect push to = '/review'/>
   }
 
     return (
@@ -39,12 +40,11 @@ class Comments extends Component {
           <h1>Any comments you want to leave?</h1>
           Comments?
           <input 
-          placeholder="1 - 5"
-          value={this.data}
-          type="number"
+          type="text"
           onChange = {this.handleChange}/>
           <button onClick={this.handleClick}>Next</button>
       </div>
+      < ReviewFeedback />
       </form>
     );
   }
