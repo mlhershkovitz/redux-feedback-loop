@@ -6,7 +6,6 @@ import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 
 //Import Routes
-import Home from '../Home/Home'
 import Feeling from '../Feeling/Feeling';
 import UnderstandingContent from '../UnderstandingContent/UnderstandingContent';
 import Support from '../Support/Support';
@@ -40,7 +39,7 @@ class App extends Component {
             <li><Link to="/comments">Comments</Link></li>
             <li><Link to="/review">Review</Link></li>
           </ul>
-          <Route path="/" component={Home} />
+          {/* <Route path="/" component={Home} /> */}
           <Route path="/feeling" component={Feeling} />
           <Route path="/understanding" component={UnderstandingContent} />
           <Route path="/support" component={Support} />
