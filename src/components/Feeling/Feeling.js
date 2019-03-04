@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux';
 import ReviewFeedback from '../ReviewFeedback/ReviewFeedback';
 import { Redirect } from 'react-router';

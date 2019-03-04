@@ -13,7 +13,7 @@ class ReviewFeedback extends Component {
           <br/>
           Support: {this.props.supportReducer}
           <br/>
-          Comments: {this.props.commentsReducer}
+          Comments: {this.props.commentReducer}
           <br/>
       </div>
     );
