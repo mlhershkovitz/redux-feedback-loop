@@ -7,31 +7,19 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 
-const feelingReducer = (state=[], action) => {
+let reduxState = {feeling: '', understanding: '', support: '', comments: '' }
+const mainReducer = (state = reduxState, action) => {
     if (action.type === 'UPDATE_FEELING') {
-        return action.payload;
+        return {...state, feeling: action.payload};
     }
-    return state;
-}
-
-const understandingReducer = (state=[], action) => {
-    if (action.type === 'UPDATE_UNDERSTANDING') {
-        return action.payload;
+    else if (action.type === 'UPDATE_UNDERSTANDING') {
+        return {...state, understanding: action.payload};
     }
-    return state;
-}
-
-const supportReducer = (state=[], action) => {
-    if (action.type === 'UPDATE_SUPPORT') {
-        return action.payload;
+    else if (action.type === 'UPDATE_SUPPORT') {
+        return {...state, support: action.payload};
     }
-    return state;
-}
-
-
-const commentReducer = (state=[], action) => {
-    if (action.type === 'UPDATE_COMMENTS') {
-        return action.payload;
+    else if (action.type === 'UPDATE_COMMENTS') {
+        return {...state, comments: action.payload};
     }
     return state;
 }
@@ -39,11 +27,7 @@ const commentReducer = (state=[], action) => {
 
 const storeInstance = createStore(
     combineReducers({
-        feelingReducer,
-        understandingReducer,
-        supportReducer,
-        commentReducer
-        
+        mainReducer
     }),    
 );
 

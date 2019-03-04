@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import ReviewFeedback from '../ReviewFeedback/ReviewFeedback';
@@ -10,7 +10,8 @@ class Support extends Component {
     redirect: false,
   }
 
-  handleClick = () => {
+  handleClick = (event) => {
+    event.preventDefault();
     console.log('button clicked');
     this.setState({
       ...this.state,

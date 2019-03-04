@@ -9,7 +9,8 @@ class UnderstandingContent extends Component {
     redirect: false,
   }
 
-  handleClick = () => {
+  handleClick = (event) => {
+    event.preventDefault();
     console.log('button clicked');
     this.setState({
       ...this.state,

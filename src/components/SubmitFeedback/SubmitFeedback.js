@@ -1,17 +1,31 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ReviewFeedback from '../ReviewFeedback/ReviewFeedback';
+import { connect } from 'react-redux';
 
 
 class SubmitFeedback extends Component {
-  handleClick = () => {
-    console.log('button clicked');    
-axios({
+  state = {
+    action: {
+      feeling: 0,
+      understanding: 0,
+      support: 0,
+      comments: '',
+    }
+  }
+
+  handleClick = (event) => {
+    console.log('button clicked',this.props.mainReducer); 
+    event.preventDefault();  
+  axios({
     method: 'POST',
     url: '/review',
-    data: this.props,
+    data: this.props.mainReducer,
   }).then ((response) =>{
-      console.log(response);
+      console.log('im back', response);
+      this.setState({
+        ...this.state,
+      })
   }).catch ((error) => {
     console.log('could not add to db', error);
   })
@@ -21,10 +35,14 @@ axios({
     return (
       <div>
         < ReviewFeedback />
-        <button onClick="handleClick">Submit</button>
+        <button onClick={this.handleClick}>Submit</button>
       </div>
     );
   }
 }
 
-export default SubmitFeedback;
+const mapReduxStateToProps = (reduxState) => {
+  return reduxState;
+};
+
+export default connect(mapReduxStateToProps)(SubmitFeedback);

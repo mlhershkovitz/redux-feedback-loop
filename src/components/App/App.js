@@ -27,16 +27,18 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Feedback!</h1>
           <h4><i>Don't forget it!</i></h4>
+        </header>
           <Router>
         <div className="navBar">
           <ul>
-           <li><Link to="/">Home</Link></li>
-           <li><Link to="/feeling">Feeling</Link></li>
-           <li><Link to="/understanding">Understanding</Link></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/feeling">Feeling</Link></li>
+            <li><Link to="/understanding">Understanding</Link></li>
             <li><Link to="/support">Support</Link></li>
             <li><Link to="/comments">Comments</Link></li>
             <li><Link to="/review">Review</Link></li>
           </ul>
+          <Route path="/" component={Home} />
           <Route path="/feeling" component={Feeling} />
           <Route path="/understanding" component={UnderstandingContent} />
           <Route path="/support" component={Support} />
@@ -44,8 +46,6 @@ class App extends Component {
           <Route exact path="/review" component={SubmitFeedback} />
         </div>
         </Router>
-        
-        </header>
         <br/>
       </div>
     );

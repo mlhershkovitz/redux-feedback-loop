@@ -7,13 +7,13 @@ class ReviewFeedback extends Component {
     render() {
     return (
       <div>
-          Feelings: {this.props.feelingReducer}
+          Feeling: {this.props.mainReducer.feeling}
           <br/>
-          Understanding: {this.props.understandingReducer}
+          Understanding: {this.props.mainReducer.understanding}
           <br/>
-          Support: {this.props.supportReducer}
+          Support: {this.props.mainReducer.support}
           <br/>
-          Comments: {this.props.commentReducer}
+          Comments: {this.props.mainReducer.comments}
           <br/>
       </div>
     );
