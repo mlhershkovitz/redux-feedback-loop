@@ -6,11 +6,13 @@ import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 
 //Import Routes
+import Home from '../Home/Home'
 import Feeling from '../Feeling/Feeling';
 import UnderstandingContent from '../UnderstandingContent/UnderstandingContent';
 import Support from '../Support/Support';
 import Comments from '../Comments/Comments';
 import SubmitFeedback from '../SubmitFeedback/SubmitFeedback';
+import Submitted from '../Submitted/Submitted';
 
 
 class App extends Component {
@@ -44,6 +46,7 @@ class App extends Component {
           <Route path="/support" component={Support} />
           <Route exact path="/comments" component={Comments} />
           <Route exact path="/review" component={SubmitFeedback} />
+          <Route exact path="/submitted" component={Submitted} />
         </div>
         </Router>
         <br/>

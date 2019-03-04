@@ -5,27 +5,21 @@ import { connect } from 'react-redux';
 
 
 class SubmitFeedback extends Component {
-  state = {
-    action: {
-      feeling: 0,
-      understanding: 0,
-      support: 0,
-      comments: '',
-    }
-  }
 
   handleClick = (event) => {
     console.log('button clicked',this.props.mainReducer); 
-    event.preventDefault();  
+    event.preventDefault(); 
+    this.setState({
+      ...this.state,
+    })
+   
   axios({
     method: 'POST',
     url: '/review',
     data: this.props.mainReducer,
   }).then ((response) =>{
       console.log('im back', response);
-      this.setState({
-        ...this.state,
-      })
+      this.props.history.push('/submitted');
   }).catch ((error) => {
     console.log('could not add to db', error);
   })
